@@ -83,7 +83,7 @@ input, select, textarea {
 	}
 
 	body {
-		background: #f7f7f7 url("images/bg01.png");
+		background: #37c0fb url("images/bg01.png");
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -223,13 +223,40 @@ input, select, textarea {
 
 		}
 
-		@media screen and (max-width: 736px) {
+@media screen and (max-width: 736px) {
 
 			.container {
 				width: 90%;
 			}
 
 		}
+
+/* Mobile header: center and enlarge logo */
+@media screen and (max-width: 736px) {
+  #header #logo a {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+  }
+  #header #logo a .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+  #header #logo img {
+    width: 50% !important;
+    max-width: 200px !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+  #header #logo .slogan {
+    font-size: 0.8rem !important;
+    display: block;
+    margin-top: 0.25rem;
+  }
+}
 
 		@media screen and (max-width: 480px) {
 
@@ -2549,7 +2576,16 @@ input, select, textarea {
 			font-size: 2.6rem;
 			font-weight: 700;
 			letter-spacing: -0.03em;
+			font-family: "Times New Roman", sans-serif;
 		}
+		#logo .slogan {
+			display: block;
+			font-style: italic;
+			font-size: 1rem;
+			color: #555;
+			margin-top: 0.3rem;
+			}
+
 
 		#logo img {
 			height: 64px;
@@ -2571,6 +2607,36 @@ input, select, textarea {
 				letter-spacing: -0.025em;
 				border: 0;
 			}
+
+@media screen and (max-width: 600px) {
+  #header #logo a {
+    flex-direction: column; /* image above name on very small screens */
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 2.8rem !important; /* slightly smaller name on phones */
+  }
+  #logo img {
+    width: 55% !important;
+    max-width: 180px !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+  #logo .slogan {
+    font-size: 0.8rem !important; /* increase but still smaller than name */
+  }
+}
+
+/* Tweak font sizes for small tablets/large phones */
+@media screen and (max-width: 736px) {
+  #header #logo a {
+    font-size: 2.6rem !important; /* slightly smaller than desktop */
+  }
+  #logo .slogan {
+    font-size: 1rem !important; /* bump slogan but keep smaller */
+  }
+}
 
 	#nav {
 		cursor: default;
@@ -3408,14 +3474,17 @@ input, select, textarea {
 				text-align: left;
 			}
 
-			/* Logo scaling for phones */
+			/* Logo scaling for phones (override to allow large logo) */
 			#logo a span {
-				font-size: 1.1rem !important;
+				font-size: inherit;
 				line-height: 1.2em;
 			}
 
 			#logo img {
-				height: 36px;
+				width: 50% !important;
+				max-width: 200px !important;
+				height: auto !important;
+				margin: 0 auto !important;
 			}
 
 			#header {
@@ -3461,3 +3530,162 @@ input, select, textarea {
 		color: #ffffff;
 	}
 
+/* --- Ridgefield Prep Services Accordion --- */
+.accordion {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.accordion details {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.accordion summary {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #0a2342;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  padding-right: 1.5rem;
+}
+
+.accordion summary::after {
+  content: "+";
+  position: absolute;
+  right: 0.5rem;
+  top: 0;
+  font-size: 1.5rem;
+  color: #37c0fb;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.accordion details[open] summary::after {
+  content: "−";
+  color: #1e90ff;
+}
+
+.accordion p {
+  margin: 0.75rem 0 0;
+  color: #474747;
+  line-height: 1.6em;
+  font-size: 1.05rem;
+}
+
+.accordion details:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+@media screen and (max-width: 600px) {
+  .accordion summary {
+    font-size: 1.2rem;
+  }
+  .accordion p {
+    font-size: 1rem;
+  }
+}
+
+#services, 
+#services .container,
+#services p, 
+#services ul, 
+#services li {
+    text-align: left;
+}
+/* === Ridgefield Project Grid Styling === */
+
+.project-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.project-card {
+  flex: 1 1 300px;
+  background: #ffffff;
+  border: 1px solid #e0e4eb;
+  border-radius: 12px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.project-card h3 {
+  margin-top: 0;
+  color: #0A2342;
+  font-size: 1.25rem;
+}
+
+.project-card .difficulty {
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.project-card ul {
+  list-style-type: disc;
+  margin: 0.5rem 0 0 1.5rem;
+  padding: 0;
+  font-size: 0.95rem;
+}
+
+.project-card p {
+  margin: 0.5rem 0;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* Difficulty color coding */
+.beginner .difficulty { color: #2ecc71; }    /* Green */
+.intermediate .difficulty { color: #f1c40f; } /* Gold */
+.advanced .difficulty { color: #e74c3c; }     /* Red */
+
+/* Responsive */
+@media (max-width: 900px) {
+  .project-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .project-card {
+    width: 90%;
+  }
+}
+
+/* === Ridgefield Custom Alignment Fix === */
+.project-card,
+.project-card h3,
+.project-card p,
+.project-card ul,
+.project-card li {
+  text-align: left;
+}
+ 
+/* === Project Card Images === */
+.project-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-top: 1rem;
+  border: 1px solid #e0e4eb;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Subtle hover animation */
+.project-card:hover .project-image {
+  transform: scale(1.03);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,65 @@
+/* === Ridgefield Project Grid Styling === */
+
+.project-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.project-card {
+  flex: 1 1 300px;
+  background: #ffffff;
+  border: 1px solid #e0e4eb;
+  border-radius: 12px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.project-card h3 {
+  margin-top: 0;
+  color: #0A2342;
+  font-size: 1.25rem;
+}
+
+.project-card .difficulty {
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.project-card ul {
+  list-style-type: disc;
+  margin: 0.5rem 0 0 1.5rem;
+  padding: 0;
+  font-size: 0.95rem;
+}
+
+.project-card p {
+  margin: 0.5rem 0;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* Difficulty color coding */
+.beginner .difficulty { color: #2ecc71; }    /* Green */
+.intermediate .difficulty { color: #f1c40f; } /* Gold */
+.advanced .difficulty { color: #e74c3c; }     /* Red */
+
+/* Responsive */
+@media (max-width: 900px) {
+  .project-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .project-card {
+    width: 90%;
+  }
+}
