@@ -6,10 +6,20 @@
     <title>Redirecting…</title>
     <link rel="canonical" href="/Home/">
     <meta name="robots" content="noindex">
+    <style>
+      html, body { margin: 0; height: 100%; background: #37c0fb; }
+      /* Prevent any flash of text */
+      body { color: transparent; }
+      a { position: absolute; left: -9999px; }
+    </style>
+    <script>
+      // JS redirect (faster than meta in many cases)
+      location.replace('/Home/');
+    </script>
   </head>
   <body>
-    <p>If you are not redirected, <a href="/Home/">click here to go to Home</a>.</p>
-    <script>location.replace('/Home/');</script>
+    <noscript>
+      <a href="/Home/">Continue to Home</a>
+    </noscript>
   </body>
-  </html>
-
+</html>
