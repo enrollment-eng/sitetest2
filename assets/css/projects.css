@@ -63,3 +63,19 @@
     width: 90%;
   }
 }
+
+/* Force 3-column layout on desktop */
+@media (min-width: 901px) {
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    justify-items: center;
+  }
+
+  .project-card {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
